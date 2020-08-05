@@ -9,9 +9,10 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BatchComponent } from './batch/batch.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, HomeComponent],
+  declarations: [AppComponent, DashboardComponent, HomeComponent, BatchComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
