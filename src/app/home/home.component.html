@@ -1,0 +1,21 @@
+<div class="p-5">
+  <div class="pb-2">
+    <h1>HOA CSV upload</h1>
+    <span>Please select your client from dropdown then upload the CSV. Upload will be in process at the backend so that
+      you dont
+      have to wait for it to complete.</span>
+  </div>
+
+  <div class="pb-4">
+    <p class="mb-0">Select Client</p>
+    <p-dropdown [options]="clients" [(ngModel)]="selectedClient"></p-dropdown>
+  </div>
+
+  <div class="pb-4">
+    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" [auto]="true"></p-fileUpload>
+  </div>
+
+  <button class="mr-5" pButton type="button" label="Submit"></button>
+  <button pButton type="button" label="Cancel" class="p-button-secondary"></button>
+
+</div>

@@ -1,4 +1,10 @@
 <div class="sidebar">
-  <button pButton type="button" label="Click"  class="p-button-info"></button>
-  <p-button label="Click"></p-button>
+  <button pButton type="button" [routerLink]="['/dashboard']" label="Dashboard" icon="fas fa-home"></button>
+  <button pButton type="button" [routerLink]="['/discover']" label="Discover" icon="far fa-compass" ></button>
+  <button pButton type="button" [routerLink]="['/visualize']" label="Visualize" icon="fas fa-chart-bar"></button>
+  <button pButton type="button" [routerLink]="['/timelion']" label="Timelion" icon="fab fa-linux"></button>
+  <button pButton type="button" [routerLink]="['/data-reflections']" label="Data Reflections" icon="fas fa-compress-arrows-alt"></button>
+  <button pButton type="button" [routerLink]="['/sentinl']" label="Sentinl" icon="far fa-clock"></button>
+  <button pButton type="button" [routerLink]="['/dev-tools']" label="Dev Tools" icon="fas fa-wrench"></button>
+  <button pButton type="button" [routerLink]="['/management']" label="Management" icon="fas fa-cog"></button>
 </div>
