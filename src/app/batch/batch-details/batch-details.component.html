@@ -1,7 +1,12 @@
 <div class="pl-3 pt-5">
-  <h1 class="mb-3">Batches</h1>
-  <a [routerLink]="['/']" label="Home">Home</a>
-  <p-table #tt aria-colcount="7" [columns]="cols" [value]="batches" class="batchesTable">
+  <button pButton (click)="goBack()" label="Back" class="p-button-link"></button>
+  <h3 class="mb-3 mt-5 text-center">Batch Details...</h3>
+  <div class="d-flex justify-content-around">
+    <p>Batch Name: {{batchName}}</p>
+    <p>Total Records: {{totalRecords}}</p>
+    <p>Status: {{status}}</p>
+  </div>
+  <p-table #tt aria-colcount="6" [value]="batchRows" [columns]="cols" class="batchTable">
     <ng-template pTemplate="caption">
       <input type="text" pInputText size="25" placeholder="Filter table..."
         (input)="tt.filterGlobal($event.target.value, 'contains')" class="pl-2 border rounded">
@@ -12,20 +17,15 @@
           {{col.header}}
         </th>
         <th></th>
-        <th></th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-batch let-columns="columns">
+    <ng-template pTemplate="body" let-batchRow let-columns="columns">
       <tr>
         <td *ngFor="let col of columns">
-          {{batch[col.field]}}
+          {{batchRow[col.field]}}
         </td>
         <td>
           <button pButton type="button" label="Work" class="p-button-success w-100 p-button-sm"></button>
-        </td>
-        <td>
-          <button pButton routerLink="/batches/{{batch.id}}" type="button" label="View"
-            class="w-100 p-button-sm"></button>
         </td>
       </tr>
     </ng-template>

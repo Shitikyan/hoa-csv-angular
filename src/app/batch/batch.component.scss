@@ -1,22 +1,19 @@
-.batchTable > .p-datatable {
+.batchesTable > .p-datatable {
   display: flex;
   flex-direction: column;
   border: 1px solid #dee2e6;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin-right: 10px;
   padding: 0px 20px 54px 20px;
+  margin-top: 39px;
 }
 
-.batchTable > .p-datatable > .p-datatable-header {
+.batchesTable > .p-datatable > .p-datatable-header {
   align-self: flex-end;
   border: none;
 }
 
-.batchTable > .p-datatable > .p-datatable-header,
-.batchTable > .p-datatable > .p-datatable-wrapper > table > .p-datatable-thead > tr > th {
-  background-color: white;
-}
-
-thead {
+.batchesTable > .p-datatable > .p-datatable-header,
+.batchesTable > .p-datatable > .p-datatable-wrapper > table > .p-datatable-thead > tr > th {
   background-color: white;
 }

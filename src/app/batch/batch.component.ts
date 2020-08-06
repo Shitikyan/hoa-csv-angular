@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { BatchService } from '../services/batch.service';
+import { Batch } from '../interfaces/batch';
 
 @Component({
   selector: 'app-batch',
@@ -8,23 +10,23 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class BatchComponent implements OnInit {
   cols: any[];
-  batches: any[];
+  batches: Batch[];
+  selectedId: number;
 
-  constructor() { }
+  constructor(private batchService: BatchService) { }
 
   ngOnInit(): void {
-    this.batches = [
-      { title: 'John', detail: 'Lennon', date: '04/10/1940', instrument: 'Guitar', count: '72' },
-      { title: 'Paul', detail: 'McCartney', date: '18/06/1942', instrument: 'Bass', count: '70' },
-      { title: 'George', detail: 'Harrison', date: '25/02/1943', instrument: 'Guitar', count: '22' },
-      { title: 'Ringo', detail: 'Starr', date: '07/07/1940', instrument: 'Drums', count: '2' }
-    ];
+    this.getBatches();
     this.cols = [
-      { field: 'title', header: 'Title' },
-      { field: 'detail', header: 'Detail' },
+      { field: 'title', header: 'Client' },
+      { field: 'detail', header: '# of orders' },
       { field: 'date', header: 'Date' },
-      { field: 'instrument', header: 'Instrument' },
-      { field: 'count', header: 'Count' }
-  ];
+      { field: 'instrument', header: 'Status' },
+      { field: 'hoa', header: 'Pending' }
+    ];
+  }
+  getBatches(): void {
+    this.batchService.getBatches()
+      .subscribe(batches => this.batches = batches);
   }
 }
