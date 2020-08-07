@@ -11,9 +11,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BatchComponent } from './batch/batch.component';
 import { BatchDetailsComponent } from './batch/batch-details/batch-details.component';
+import { BatchRowDetailsComponent } from './batch/batch-row-details/batch-row-details.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, HomeComponent, BatchComponent, BatchDetailsComponent],
+  declarations: [AppComponent, DashboardComponent, HomeComponent, BatchComponent, BatchDetailsComponent, BatchRowDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

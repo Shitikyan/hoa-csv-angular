@@ -1,15 +1,13 @@
-.batchTable > .p-datatable {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
-  margin-right: 10px;
-  padding: 0px 20px 54px 20px;
-}
-
-.batchTable > .p-datatable > .p-datatable-header {
-  align-self: flex-end;
-  border: none;
+.batchTable {
+  .p-datatable {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 54px 20px;
+    .p-datatable-header {
+      align-self: flex-end;
+      border: none;
+    }
+  }
 }
 
 .batchTable > .p-datatable > .p-datatable-header,

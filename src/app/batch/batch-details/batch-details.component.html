@@ -6,28 +6,32 @@
     <p>Total Records: {{totalRecords}}</p>
     <p>Status: {{status}}</p>
   </div>
-  <p-table #tt aria-colcount="6" [value]="batchRows" [columns]="cols" class="batchTable">
-    <ng-template pTemplate="caption">
-      <input type="text" pInputText size="25" placeholder="Filter table..."
-        (input)="tt.filterGlobal($event.target.value, 'contains')" class="pl-2 border rounded">
-    </ng-template>
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th *ngFor="let col of columns">
-          {{col.header}}
-        </th>
-        <th></th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-batchRow let-columns="columns">
-      <tr>
-        <td *ngFor="let col of columns">
-          {{batchRow[col.field]}}
-        </td>
-        <td>
-          <button pButton type="button" label="Work" class="p-button-success w-100 p-button-sm"></button>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
+  <app-border>
+    <p-table #tt aria-colcount="6" [value]="batchRows" [columns]="cols" class="batchTable">
+      <ng-template pTemplate="caption">
+        <input type="text" pInputText size="25" placeholder="Filter table..."
+          (input)="tt.filterGlobal($event.target.value, 'contains')" class="pl-2 border rounded">
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-batchRow let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{batchRow[col.field]}}
+          </td>
+          <td>
+
+            <button pButton routerLink="/batch/details/{{batchRow.id}}" type="button" label="Work"
+              class="p-button-success w-100 p-button-sm"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </app-border>
 </div>
