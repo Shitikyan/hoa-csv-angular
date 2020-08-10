@@ -8,6 +8,14 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
-  exports: [LayoutModule, DropdownModule, FileUploadModule, TableModule, ButtonModule, ComponentsModule, InputTextModule],
+  exports: [
+    LayoutModule,
+    DropdownModule,
+    FileUploadModule,
+    TableModule,
+    ButtonModule,
+    ComponentsModule,
+    InputTextModule,
+  ]
 })
-export class SharedModule { }
+export class SharedModule {}

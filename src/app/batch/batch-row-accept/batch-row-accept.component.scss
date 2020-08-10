@@ -1,0 +1,16 @@
+.batch-row-accept {
+  padding: 50px 30px;
+
+  @for $i from 1 through 10 {
+    .g-cols-#{$i} {
+      display: grid;
+      padding-bottom: 45px;
+      column-gap: 25px;
+      grid-template-columns: repeat($i, 1fr);
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

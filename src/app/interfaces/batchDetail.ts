@@ -1,4 +1,4 @@
-export interface BatchDetails {
+export interface BatchDetail {
     streetAddress: string;
     city: string;
     state: string;

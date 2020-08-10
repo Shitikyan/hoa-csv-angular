@@ -8,7 +8,7 @@
   <app-border className="ml-3">
     <div class="d-flex justify-content-center mt-2 mb-4" id="flexButtons">
       <button pButton type="button" label="Skip" class="p-button-sm pl-4 pr-4"></button>
-      <button pButton type="button" label="Accept" class="p-button-success p-button-sm pl-4 pr-4"></button>
+      <button pButton type="button" label="Accept" [routerLink]="['/batch/details/' + id + '/accept']" class="p-button-success p-button-sm pl-4 pr-4"></button>
       <button pButton type="button" label="Exit" (click)="goBack()"
         class="p-button-warning p-button-sm pl-4 pr-4"></button>
     </div>
