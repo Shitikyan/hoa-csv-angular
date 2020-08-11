@@ -13,4 +13,9 @@
       }
     }
   }
+
+  #table > .p-datatable > .p-datatable-header,
+  #table > .p-datatable > .p-datatable-wrapper > table > .p-datatable-thead > tr > th {
+    background-color: white;
+  }
 }

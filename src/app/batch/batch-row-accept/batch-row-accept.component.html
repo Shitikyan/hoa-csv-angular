@@ -1,89 +1,134 @@
 <div class="batch-row-accept">
   <div class="g-cols-3">
     <app-input label="Adress" [value]="AddressInfo"></app-input>
-    <app-input label="APN" [(ngModel)]="batchDetail.apn"></app-input>
-    <app-input label="Ref ID" [(ngModel)]="batchDetail.refId"></app-input>
+    <app-input label="APN" [(ngModel)]="batchDetail.APN"></app-input>
+    <app-input label="Ref ID" [(ngModel)]="batchDetail.Ref_ID"></app-input>
   </div>
 
   <div class="g-cols-7">
-    <app-input label="Current Owner" [(ngModel)]="batchDetail.currentOwner"></app-input>
+    <app-input label="Current Owner" [(ngModel)]="batchDetail.CurrentOwner"></app-input>
     <app-input label="Prop Land Use" [(ngModel)]="batchDetail.prop.landUse"></app-input>
-    <app-input label="Prop Year Built" [(ngModel)]="batchDetail.prop.yearBuilt"></app-input>
-    <app-input label="Prop Subdivision" [(ngModel)]="batchDetail.prop.subdivision"></app-input>
+    <app-input label="Prop Year Built" [(ngModel)]="batchDetail.YearBuilt"></app-input>
+    <app-input label="Prop Subdivision" [(ngModel)]="batchDetail.Subdivision"></app-input>
     <app-input label="Prop Standard Subdivision" [(ngModel)]="batchDetail.prop.standardSubdivison"></app-input>
     <app-input label="Prop Subdivision 2" [(ngModel)]="batchDetail.prop.subdivision2"></app-input>
     <app-input label="Prop Override Division" [(ngModel)]="batchDetail.prop.overrideSubdivision"></app-input>
   </div>
 
   <div class="g-cols-7">
-    <app-input label="Latest Sale Condorider" [(ngModel)]="batchDetail.latestSale.condorider"></app-input>
-    <app-input label="Latest Sale Pudrider" [(ngModel)]="batchDetail.latestSale.pudrider"></app-input>
+    <app-input label="Latest Sale Condorider" [(ngModel)]="batchDetail.LatestSale_CondoRider"></app-input>
+    <app-input label="Latest Sale Pudrider" [(ngModel)]="batchDetail.LatestSale_PUDRider"></app-input>
   </div>
 
   <div class="g-cols-4">
-    <app-input-disabled label="HOA Indicator" [value]="batchDetail.hoa.indicator"></app-input-disabled>
-    <app-input-disabled label="HOA Flag" [value]="batchDetail.hoa.flag"></app-input-disabled>
-    <app-input-disabled label="Number of HOAs" type="number" [value]="batchDetail.hoa.number"></app-input-disabled>
-    <app-input-disabled label="Comment" [value]="batchDetail.hoa.comments"></app-input-disabled>
+    <app-input-disabled label="HOA Indicator" [value]="batchDetail.HOA_Indicator"></app-input-disabled>
+    <app-input-disabled label="HOA Flag" [value]="batchDetail.HOA_Flag"></app-input-disabled>
+    <app-input-disabled label="Number of HOAs" type="number" [value]="batchDetail.NbrOfHOAs"></app-input-disabled>
+    <app-input-disabled label="Comment" [value]="batchDetail.Comments"></app-input-disabled>
   </div>
 
-  <div *ngFor="let hoa of batchDetail.hoa.hoas; let i = index">
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Name'" [value]="hoa.name"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Type'" [value]="hoa.type"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Is Master/Has Master'" [value]="hoa.isMaster || hoa.hasMaster"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Voluntary'" [value]="hoa.voluntary"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Has Management Company'" [value]="hoa.hasManagementCompany"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Contact Name'" [value]="hoa.contactName"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Contact Type'" [value]="hoa.contactType"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Address Mailing'" [value]="hoa.mailingAddress"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' City'" [value]="hoa.city"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' State'" [value]="hoa.state"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Zip Code'" [value]="hoa.zipCode"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Contact Phone'" [value]="hoa.contactPhone"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Contact Phone Type'" [value]="hoa.contactPhoneType"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Contact Email'" [value]="hoa.contactEmail"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-3">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Name'" [value]="hoa.managementCompanyName"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-3">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Address'" [value]="hoa.managementCompanyAddress"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company City'" [value]="hoa.contactPhone"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company State'" [value]="hoa.contactPhoneType"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Zip'" [value]="hoa.contactEmail"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Phone'" [value]="hoa.managementCompanyPhone"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Phone Type'" [value]="hoa.managementCompanyPhoneType"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Management Company Company Email'" [value]="hoa.managementCompanyEmail"></app-input-disabled>
-      <app-input-disabled [label]="'HOA Contact Type 2'" [value]="hoa.contactType2"></app-input-disabled>
-    </div>
-
-    <div class="g-cols-5">
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Last Verified Date'" [value]="formatDate(hoa.lastVerified)"></app-input-disabled>
-      <app-input-disabled [label]="'HOA ' + (i + 1) + ' Verified Method'" [value]="hoa.verifiedMethod"></app-input-disabled>
-    </div>
-
-    <button class="mr-5" pButton type="button" label="Submit"></button>
-    <button pButton type="button" (click)="goBack()" label="Cancel" class="p-button-secondary"></button>
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Name" [value]="batchDetail.HOA_1_Name"></app-input-disabled>
+    <app-input-disabled label="HOA 1 Type" [value]="batchDetail.HOA_1_Type"></app-input-disabled>
+    <app-input-disabled label="HOA 1 Is Master/Has Master"
+      [value]="batchDetail.hoa.hoas[0].isMaster || batchDetail.hoa.hoas[0].hasMaster">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Voluntary" [value]="batchDetail.hoa.hoas[0].voluntary"></app-input-disabled>
+    <app-input-disabled label="HOA 1 Has Management Company"
+      [value]="batchDetail.HOA_1_Management_Company_Name ? true : false"></app-input-disabled>
   </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Contact Name" [value]="batchDetail.HOA_1_Contact_Name"></app-input-disabled>
+    <app-input-disabled label="HOA 1 Contact Type'" [value]="batchDetail.HOA_1_Contact_Type"></app-input-disabled>
+  </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Address Mailing" [value]="batchDetail.HOA_1_Address_Mailing">
+    </app-input-disabled>
+  </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 City" [value]="batchDetail.HOA_1_City"></app-input-disabled>
+    <app-input-disabled label="HOA 1 State" [value]="batchDetail.HOA_1_State"></app-input-disabled>
+    <app-input-disabled label="'HOA 1 Zip Code" [value]="batchDetail.HOA_1_Zip_Code"></app-input-disabled>
+  </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Contact Phone" [value]="batchDetail.HOA_1_Contact_Phone"></app-input-disabled>
+    <app-input-disabled label="HOA 1 Contact Phone Type" [value]="batchDetail.HOA_1_Contact_Phone_Type">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Contact Email" [value]="batchDetail.HOA_1_Contact_Email"></app-input-disabled>
+  </div>
+
+  <div class="g-cols-3">
+    <app-input-disabled label="HOA 1 Management Company Name" [value]="batchDetail.HOA_1_Management_Company_Name">
+    </app-input-disabled>
+  </div>
+
+  <div class="g-cols-3">
+    <app-input-disabled label="HOA 1 Management Company Address" [value]="batchDetail.HOA_1_Management_Company_Address">
+    </app-input-disabled>
+  </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Management Company City" [value]="batchDetail.HOA_1_Mangement_Company_City">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Management Company State" [value]="batchDetail.HOA_1_Management_Company_State">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Management Company Zip" [value]="batchDetail.HOA_1_Management_Company_Zip_Code">
+    </app-input-disabled>
+  </div>
+
+  <div class="g-cols-4">
+    <app-input-disabled label="HOA 1 Management Company Phone" [value]="batchDetail.HOA_1_Management_Company_Phone">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Management Company Phone Type"
+      [value]="batchDetail.HOA_1_Management_Company_Phone_Type">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Management Company Company Email"
+      [value]="batchDetail.HOA_1_Management_Company_Email">
+    </app-input-disabled>
+    <app-input-disabled label="HOA Contact Type 2" [value]="batchDetail.HOA_Contact_Type_2"></app-input-disabled>
+  </div>
+
+  <div class="g-cols-5">
+    <app-input-disabled label="HOA 1 Last Verified Date" [value]="formatDate(batchDetail.hoa.hoas[0].lastVerified)">
+    </app-input-disabled>
+    <app-input-disabled label="HOA 1 Verified Method" [value]="batchDetail.hoa.hoas[0].verifiedMethod">
+    </app-input-disabled>
+  </div>
+
+  <app-border>
+    <p-table [value]="batchRows" [columns]="cols" id="table" [scrollable]="true" scrollHeight="200px">
+      <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+          <col style="width:250px" *ngFor="let col of columns">
+        </colgroup>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" pResizableColumn>
+            {{col.header}}
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-batchRow let-columns="columns">
+        <tr>
+          <td *ngFor="let col of columns">
+            {{batchRow[col.field]}}
+          </td>
+          <td>
+            <button pButton routerLink="/batch/details/{{batchRow.id}}" type="button" label="Work"
+              class="p-button-success w-100 p-button-sm"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </app-border>
+
+
+  <button class="mr-5" pButton type="button" label="Submit"></button>
+  <button pButton type="button" (click)="goBack()" label="Cancel" class="p-button-secondary"></button>
 </div>
