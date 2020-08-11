@@ -14,7 +14,7 @@ export class BatchRowDetailsComponent implements OnInit {
   status: string = '409 Pending';
   id: number;
 
-  constructor(private location: Location, private route: ActivatedRoute) {}
+  constructor(private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {

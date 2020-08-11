@@ -6,23 +6,26 @@
     <p>Status: {{status}}</p>
   </div>
   <app-border className="ml-3">
-    <div class="d-flex justify-content-center mt-2 mb-4" id="flexButtons">
+    <div class="d-flex justify-content-center mt-2 mb-5" id="flexButtons">
       <button pButton type="button" label="Skip" class="p-button-sm pl-4 pr-4"></button>
-      <button pButton type="button" label="Accept" [routerLink]="['/batch/details/' + id + '/accept']" class="p-button-success p-button-sm pl-4 pr-4"></button>
+      <button pButton type="button" label="Accept" [routerLink]="['/batch/details/' + id + '/accept']"
+        class="p-button-success p-button-sm pl-4 pr-4"></button>
       <button pButton type="button" label="Exit" (click)="goBack()"
         class="p-button-warning p-button-sm pl-4 pr-4"></button>
     </div>
     <div class="mb-4" id="grid">
-      <input type="text" placeholder="Batch Name goes here which will be editable" class="h-75" pInputText />
-      <input type="text" placeholder="Batch Gender goes here which will be editable" class="h-75" pInputText />
-      <input type="text" placeholder="Batch Date goes here which will be editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
-      <input type="text" placeholder="Editable" class="h-75" pInputText />
+      <app-input-disabled type="text" label="Batch Name goes here which will be editable" className="b-grey">
+      </app-input-disabled>
+      <app-input-disabled type="text" label="Batch Gender goes here which will be editable" className="b-grey">
+      </app-input-disabled>
+      <app-input-disabled type="text" label="Batch Date goes here which will be editable" className="b-grey">
+      </app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
+      <app-input-disabled type="text" label="Editable" className="b-grey"></app-input-disabled>
     </div>
   </app-border>
-  <button pButton type="button" label="Submit" class="p-button-success p-button-sm pl-3 pr-3 mt-3"></button>
 </div>

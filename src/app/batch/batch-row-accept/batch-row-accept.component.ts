@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BatchDetailsService } from 'src/app/services/batch-details.service';
 import { BatchDetail } from 'src/app/interfaces/batchDetail';
+import { Location } from '@angular/common';
 import * as moment from 'moment';
 
 @Component({
@@ -14,9 +15,10 @@ export class BatchRowAcceptComponent implements OnInit {
   batchDetail: BatchDetail | null = null;
 
   constructor(
+    private location: Location,
     private batchDetailsService: BatchDetailsService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -32,5 +34,9 @@ export class BatchRowAcceptComponent implements OnInit {
 
   formatDate(date: Date) {
     return moment(date).format('MMM Do YYYY');
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

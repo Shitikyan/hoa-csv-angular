@@ -18,9 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) {
     this.clients = [
-      { label: 'Select City', value: null },
-      { label: 'first', value: { id: 1, name: 'first' } },
-      { label: 'second', value: { id: 2, name: 'second' } },
+      { label: 'CSV', value: { id: 1, name: 'CSV' } },
     ];
   }
 

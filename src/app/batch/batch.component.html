@@ -22,7 +22,7 @@
             {{batch[col.field]}}
           </td>
           <td>
-            <button pButton type="button" label="Work" class="p-button-success w-100 p-button-sm"></button>
+            <button pButton type="button" routerLink="/batch/details/{{batch.id}}" label="Work" class="p-button-success w-100 p-button-sm"></button>
           </td>
           <td>
             <button pButton routerLink="/batches/{{batch.id}}" type="button" label="View"

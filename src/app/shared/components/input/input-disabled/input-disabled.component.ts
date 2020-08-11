@@ -10,6 +10,7 @@ export class InputDisabledComponent implements OnInit {
   @Input() type: 'text' | 'email' | 'password' = 'text';
   @Input() label: string;
   @Input() value: string;
+  @Input() className: 'b-red' | 'b-black';
 
   constructor() { }
 
