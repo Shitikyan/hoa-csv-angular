@@ -1,5 +1,5 @@
 export interface Batch {
-  id: number;
+  id: string;
   title: string;
   detail: string;
   date: string;

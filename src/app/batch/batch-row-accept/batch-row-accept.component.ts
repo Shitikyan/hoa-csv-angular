@@ -23,11 +23,8 @@ export class BatchRowAcceptComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      this.batchDetailsService
-        .getBatch(Number(params.get('id')))
-        .subscribe((res) => (this.batchDetail = res));
-    });
+    this.getBatchDetail();
+    this.batchRows.push(this.batchDetail);
     this.cols = [
       { field: 'Ref_ID', header: 'Ref ID' },
       { field: 'PropertyFullStreetAddress', header: 'PropertyFullStreetAddress' },
@@ -139,6 +136,20 @@ export class BatchRowAcceptComponent implements OnInit {
 
   get AddressInfo() {
     return `${this.batchDetail.PropertyFullStreetAddress} ${this.batchDetail.PropertyCity} ${this.batchDetail.PropertyState} ${this.batchDetail.PropertyZip}`;
+  }
+
+  getBatchDetail(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.batchDetailsService
+        .getBatchDetail(params.get('id'))
+        .subscribe(res => this.batchDetail = res);
+    });
+  }
+
+  SetBatchDetail(id: string) {
+    this.batchDetailsService
+      .getBatchDetail(id)
+      .subscribe(res => this.batchDetail = res);
   }
 
   formatDate(date: Date) {

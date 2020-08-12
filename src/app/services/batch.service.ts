@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
-
-import { Batch } from '../interfaces/batch';
-import { Batches } from '../mock-data/mock-batches';
+import { ApiService } from './api.service';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BatchService {
+  constructor(private apiService: ApiService) { }
 
-  getBatches(): Observable<Batch[]> {
-    return of(Batches);
+  getBatches() {
+    return this.apiService.get('batches')
+    //return of(Batches);
   }
 
-  getBatch(id: number): Observable<Batch> {
-    return of(Batches.find(batch => batch.id === id));
+  getBatch(id: string) {
+    return this.apiService.get('batches', new HttpParams().set('id', id))
+    //return of(BatchDetails.filter(batchRow => batchRow.batchId === id));
   }
 
-  constructor() { }
 }

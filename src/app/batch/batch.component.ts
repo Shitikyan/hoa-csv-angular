@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BatchService } from '../services/batch.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Batch } from '../interfaces/batch';
 
 @Component({
@@ -18,13 +18,14 @@ export class BatchComponent implements OnInit {
   ngOnInit(): void {
     this.getBatches();
     this.cols = [
-      { field: 'title', header: 'Client' },
-      { field: 'detail', header: '# of orders' },
+      { field: 'id', header: 'Id' },
+      { field: 'client', header: '# of orders' },
       { field: 'date', header: 'Date' },
-      { field: 'instrument', header: 'Status' },
-      { field: 'hoa', header: 'Pending' }
+      { field: 'status', header: 'Status' },
+      { field: 'hoa', header: 'HOA' }
     ];
   }
+
   getBatches(): void {
     this.batchService.getBatches()
       .subscribe(batches => this.batches = batches);
