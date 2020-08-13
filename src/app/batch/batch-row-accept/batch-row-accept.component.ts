@@ -13,7 +13,8 @@ import * as moment from 'moment';
 })
 export class BatchRowAcceptComponent implements OnInit {
   cols: any[];
-  batchDetail: BatchDetail = {} as BatchDetail;
+  batchRow: BatchDetail = {} as BatchDetail;
+  interBatchRow: BatchDetail = {} as BatchDetail;
   batchRows: BatchDetail[] = [];
 
   constructor(
@@ -135,7 +136,7 @@ export class BatchRowAcceptComponent implements OnInit {
   }
 
   get AddressInfo() {
-    return `${this.batchDetail.PropertyFullStreetAddress} ${this.batchDetail.PropertyCity} ${this.batchDetail.PropertyState} ${this.batchDetail.PropertyZip}`;
+    return `${this.batchRow.PropertyFullStreetAddress} ${this.batchRow.PropertyCity} ${this.batchRow.PropertyState} ${this.batchRow.PropertyZip}`;
   }
 
   getBatchrows() {
@@ -149,15 +150,33 @@ export class BatchRowAcceptComponent implements OnInit {
       this.batchDetailsService
         .getBatchrowDetail(params.get('id'))
         .subscribe(res => {
-          this.batchDetail = res;
+          this.batchRow = res;
+          this.interBatchRow = res;
         });
     });
   }
 
-  setBatchrowDetail(id: string) {
+  setInterBatchrowDetail(id: string) {
     this.batchDetailsService
       .getBatchrowDetail(id)
-      .subscribe(res => this.batchDetail = res);
+      .subscribe(res => this.interBatchRow = res);
+  }
+
+  editBatchrow() {
+    const merged = {
+      ...this.interBatchRow,
+      id: this.batchRow.id,
+      APN: this.batchRow.APN,
+      Ref_ID: this.batchRow.Ref_ID,
+      CurrentOwner: this.batchRow.CurrentOwner,
+      LandUseDesc: this.batchRow.LandUseDesc,
+      YearBuilt: this.batchRow.YearBuilt,
+      Subdivision: this.batchRow.Subdivision,
+      LatestSale_CondoRider: this.batchRow.LatestLoan_CondoRider,
+      LatestSale_PUDRider: this.batchRow.LatestLoan_PUDRider
+    };
+    this.batchDetailsService
+      .acceptBatchrow(merged);
   }
 
   formatDate(date: Date) {

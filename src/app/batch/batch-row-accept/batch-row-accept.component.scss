@@ -21,6 +21,13 @@
   #table {
     .p-datatable {
       max-width: 100em;
+
+      .selectRow {
+        cursor: pointer;
+        &:hover {
+          background-color: whitesmoke;
+        }
+      }
     }
   }
 

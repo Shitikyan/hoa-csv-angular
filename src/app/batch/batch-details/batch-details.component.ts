@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { BatchService } from '../../services/batch.service';
 import { BatchDetail } from 'src/app/interfaces/batchDetail';
+import { Batch } from 'src/app/interfaces/batch';
 
 @Component({
   selector: 'app-batch-details',
@@ -14,9 +15,7 @@ import { BatchDetail } from 'src/app/interfaces/batchDetail';
 export class BatchDetailsComponent implements OnInit {
   cols: any[];
   batchRows: BatchDetail[] = [];
-  batchName: string = "testBatch";
-  totalRecords: number = 0;
-  status: string = "409 Pending";
+  batch: Batch = {} as Batch;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,8 +23,9 @@ export class BatchDetailsComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit(): void {
-    this.getBatch();
-    this.totalRecords = this.batchRows.length;
+    this.getBatch()
+    this.getBatchrows();
+
     this.cols = [
       { field: 'id', header: 'ID' },
       { field: 'CurrentOwner', header: 'Title' },
@@ -36,10 +36,18 @@ export class BatchDetailsComponent implements OnInit {
     ];
   }
 
+  getBatchrows(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.batchService.getBatchrows(id)
+      .subscribe(batchRows => {
+        this.batchRows = batchRows;
+      });
+  }
+
   getBatch(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.batchService.getBatch(id)
-      .subscribe(batchRows => this.batchRows = batchRows);
+      .subscribe(res => this.batch = res);
   }
 
   goBack(): void {

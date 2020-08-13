@@ -1,10 +1,10 @@
 <div class="pl-3 pt-5">
   <button pButton (click)="goBack()" label="Back" class="p-button-link"></button>
   <h3 class="mb-3 mt-5 text-center">Batch Details...</h3>
-  <div class="d-flex justify-content-around">
-    <p>Batch Name: {{batchName}}</p>
-    <p>Total Records: {{totalRecords}}</p>
-    <p>Status: {{status}}</p>
+  <div class="d-flex justify-content-around text-center">
+    <p class="tableInfo">Batch Name: {{batch.name}}</p>
+    <p class="tableInfo">Total Records: {{batchRows.length}}</p>
+    <p class="tableInfo">Status: {{batch.status}}</p>
   </div>
   <app-border>
     <p-table #tt aria-colcount="6" [value]="batchRows" [columns]="cols" class="batchTable" [paginator]="true"

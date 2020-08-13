@@ -1,8 +1,8 @@
 export interface Batch {
   id: string;
-  title: string;
-  detail: string;
+  name: string;
+  client: string;
   date: string;
-  instrument: string;
+  status: string;
   hoa: number;
 }

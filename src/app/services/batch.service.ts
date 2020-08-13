@@ -13,6 +13,10 @@ export class BatchService {
   }
 
   getBatch(id: string) {
+    return this.apiService.get(`batches/${id}`)
+  }
+
+  getBatchrows(id: string) {
     return this.apiService.get(`batch/${id}/batch-rows`)
   }
 

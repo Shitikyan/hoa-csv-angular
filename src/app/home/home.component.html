@@ -12,7 +12,7 @@
   </div>
 
   <div class="pb-4">
-    <p-fileUpload name="demo[]" [url]="path +'files'" (onUpload)="onUpload($event)" multiple="multiple"
+    <p-fileUpload *ngIf="uploadedFiles.length !== 1" name="demo[]" [url]="path +'files'" (onUpload)="onUpload($event)"
       accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
       <ng-template pTemplate="content">
         <ul *ngIf="uploadedFiles.length">

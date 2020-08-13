@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { BatchDetail } from '../interfaces/batchDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,9 @@ export class BatchDetailsService {
 
   getBatchrows() {
     return this.apiService.get('batch-rows');
+  }
+
+  acceptBatchrow(batchRow: BatchDetail) {
+    return this.apiService.put(`bath-rows/${batchRow.id}/accept`)
   }
 }
