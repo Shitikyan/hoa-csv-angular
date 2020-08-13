@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 interface Client {
   id: number;
@@ -13,14 +14,25 @@ interface Client {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  fileToUpload: File = null;
   clients: SelectItem[];
   selectedClient: Client;
+  uploadedFiles: any[] = [];
+  path: string;
 
-  constructor(private httpClient: HttpClient) {
+  constructor() {
     this.clients = [
       { label: 'CSV', value: { id: 1, name: 'CSV' } },
     ];
   }
 
-  ngOnInit(): void {}
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+  }
+
+  ngOnInit(): void {
+    this.path = environment.api_url;
+  }
 }

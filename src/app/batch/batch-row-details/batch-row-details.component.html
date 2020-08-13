@@ -8,14 +8,13 @@
   <app-border className="ml-3">
     <div class="d-flex justify-content-center mt-2 mb-5" id="flexButtons">
       <button pButton type="button" label="Skip" class="p-button-sm pl-4 pr-4"></button>
-      <button *ngIf="batchRow" pButton type="button" label="Accept" routerLink="/batch/details/{{batchRow.id}}/accept"
+      <button pButton type="button" label="Accept" routerLink="/batch/details/{{batchRow.id}}/accept"
         class="p-button-success p-button-sm pl-4 pr-4"></button>
       <button pButton type="button" label="Exit" (click)="goBack()"
         class="p-button-warning p-button-sm pl-4 pr-4"></button>
     </div>
     <div class="mb-4" id="grid">
-      <app-input-disabled type="text" label="" className="b-grey"
-        [value]="batchRow.CurrentOwner">
+      <app-input-disabled type="text" label="" className="b-grey" [value]="batchRow.CurrentOwner">
       </app-input-disabled>
       <app-input-disabled type="text" label="" [value]="batchRow.PropertyFullStreetAddress" className="b-grey">
       </app-input-disabled>

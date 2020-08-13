@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class BatchRowAcceptComponent implements OnInit {
   cols: any[];
-  batchDetail: BatchDetail | null = null;
+  batchDetail: BatchDetail = {} as BatchDetail;
   batchRows: BatchDetail[] = [];
 
   constructor(
@@ -23,8 +23,8 @@ export class BatchRowAcceptComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getBatchDetail();
-    this.batchRows.push(this.batchDetail);
+    this.getBatchrowDetail();
+    this.getBatchrows();
     this.cols = [
       { field: 'Ref_ID', header: 'Ref ID' },
       { field: 'PropertyFullStreetAddress', header: 'PropertyFullStreetAddress' },
@@ -138,17 +138,25 @@ export class BatchRowAcceptComponent implements OnInit {
     return `${this.batchDetail.PropertyFullStreetAddress} ${this.batchDetail.PropertyCity} ${this.batchDetail.PropertyState} ${this.batchDetail.PropertyZip}`;
   }
 
-  getBatchDetail(): void {
+  getBatchrows() {
+    this.batchDetailsService
+      .getBatchrows()
+      .subscribe(res => this.batchRows = res);
+  }
+
+  getBatchrowDetail(): void {
     this.route.paramMap.subscribe((params) => {
       this.batchDetailsService
-        .getBatchDetail(params.get('id'))
-        .subscribe(res => this.batchDetail = res);
+        .getBatchrowDetail(params.get('id'))
+        .subscribe(res => {
+          this.batchDetail = res;
+        });
     });
   }
 
-  SetBatchDetail(id: string) {
+  setBatchrowDetail(id: string) {
     this.batchDetailsService
-      .getBatchDetail(id)
+      .getBatchrowDetail(id)
       .subscribe(res => this.batchDetail = res);
   }
 

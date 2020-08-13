@@ -1,6 +1,9 @@
 import { BatchService } from '../services/batch.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Batch } from '../interfaces/batch';
+import { BatchDetail } from '../interfaces/batchDetail';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-batch',
@@ -11,9 +14,11 @@ import { Batch } from '../interfaces/batch';
 export class BatchComponent implements OnInit {
   cols: any[];
   batches: Batch[];
+  batchRow: BatchDetail = {} as BatchDetail;
   selectedId: number;
 
-  constructor(private batchService: BatchService) { }
+  constructor(private batchService: BatchService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getBatches();
@@ -29,5 +34,21 @@ export class BatchComponent implements OnInit {
   getBatches(): void {
     this.batchService.getBatches()
       .subscribe(batches => this.batches = batches);
+  }
+
+  work(id: string) {
+    this.getBatchFirstBatchrow(id)
+      .subscribe(firstRow => {
+        if (!firstRow) {
+          //Notify User
+          return;
+        }
+        this.batchRow = firstRow;
+        this.router.navigate(['batch/details/', this.batchRow.id]);
+      });
+  }
+
+  getBatchFirstBatchrow(id: string): Observable<any> {
+    return this.batchService.getFirstBatchrow(id);
   }
 }

@@ -2,7 +2,9 @@
   <h1 class="mb-3">Batches</h1>
   <a [routerLink]="['/']" label="Home">Home</a>
   <app-border>
-    <p-table #tt aria-colcount="7" [columns]="cols" [value]="batches" class="batchesTable">
+    <p-table #tt aria-colcount="7" [columns]="cols" [value]="batches" class="batchesTable" [paginator]="true"
+      [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="caption">
         <input type="text" pInputText size="25" placeholder="Filter table..."
           (input)="tt.filterGlobal($event.target.value, 'contains')" class="pl-2 border rounded">
@@ -22,7 +24,8 @@
             {{batch[col.field]}}
           </td>
           <td>
-            <button pButton type="button" routerLink="/batch/details/{{batch.id}}" label="Work" class="p-button-success w-100 p-button-sm"></button>
+            <button pButton type="button" (click)="work(batch.id)" label="Work"
+              class="p-button-success w-100 p-button-sm"></button>
           </td>
           <td>
             <button pButton routerLink="/batches/{{batch.id}}" type="button" label="View"

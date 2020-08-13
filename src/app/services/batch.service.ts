@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { ApiService } from './api.service';
 import { HttpParams } from '@angular/common/http';
 
@@ -11,12 +10,13 @@ export class BatchService {
 
   getBatches() {
     return this.apiService.get('batches')
-    //return of(Batches);
   }
 
   getBatch(id: string) {
-    return this.apiService.get('batches', new HttpParams().set('id', id))
-    //return of(BatchDetails.filter(batchRow => batchRow.batchId === id));
+    return this.apiService.get(`batch/${id}/batch-rows`)
   }
 
+  getFirstBatchrow(id: string) {
+    return this.apiService.get(`batch/${id}/batch-row`)
+  }
 }

@@ -28,7 +28,7 @@ export class BatchRowDetailsComponent implements OnInit {
   getBatchDetail(): void {
     this.route.paramMap.subscribe((params) => {
       this.batchDetailsService
-        .getBatchDetail(params.get('id'))
+        .getBatchrowDetail(params.get('id'))
         .subscribe((res) => { this.batchRow = res });
     });
   }

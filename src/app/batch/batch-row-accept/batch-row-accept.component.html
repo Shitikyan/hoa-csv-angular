@@ -7,12 +7,12 @@
 
   <div class="g-cols-7">
     <app-input label="Current Owner" [(ngModel)]="batchDetail.CurrentOwner"></app-input>
-    <app-input label="Prop Land Use" [(ngModel)]="batchDetail.prop.landUse"></app-input>
+    <app-input label="Prop Land Use" [(ngModel)]="batchDetail.LandUseDesc"></app-input>
     <app-input label="Prop Year Built" [(ngModel)]="batchDetail.YearBuilt"></app-input>
     <app-input label="Prop Subdivision" [(ngModel)]="batchDetail.Subdivision"></app-input>
-    <app-input label="Prop Standard Subdivision" [(ngModel)]="batchDetail.prop.standardSubdivison"></app-input>
-    <app-input label="Prop Subdivision 2" [(ngModel)]="batchDetail.prop.subdivision2"></app-input>
-    <app-input label="Prop Override Division" [(ngModel)]="batchDetail.prop.overrideSubdivision"></app-input>
+    <!-- <app-input label="Prop Standard Subdivision" [(ngModel)]="batchDetail.prop.standardSubdivison"></app-input> -->
+    <!-- <app-input label="Prop Subdivision 2" [(ngModel)]="batchDetail.prop.subdivision2"></app-input>
+    <app-input label="Prop Override Division" [(ngModel)]="batchDetail.prop.overrideSubdivision"></app-input> -->
   </div>
 
   <div class="g-cols-7">
@@ -30,10 +30,10 @@
   <div class="g-cols-5">
     <app-input-disabled label="HOA 1 Name" [value]="batchDetail.HOA_1_Name"></app-input-disabled>
     <app-input-disabled label="HOA 1 Type" [value]="batchDetail.HOA_1_Type"></app-input-disabled>
-    <app-input-disabled label="HOA 1 Is Master/Has Master"
+    <!-- <app-input-disabled label="HOA 1 Is Master/Has Master"
       [value]="batchDetail.hoa.hoas[0].isMaster || batchDetail.hoa.hoas[0].hasMaster">
-    </app-input-disabled>
-    <app-input-disabled label="HOA 1 Voluntary" [value]="batchDetail.hoa.hoas[0].voluntary"></app-input-disabled>
+    </app-input-disabled> -->
+    <!-- <app-input-disabled label="HOA 1 Voluntary" [value]="batchDetail.hoa.hoas[0].voluntary"></app-input-disabled> -->
     <app-input-disabled label="HOA 1 Has Management Company"
       [value]="batchDetail.HOA_1_Management_Company_Name ? true : false"></app-input-disabled>
   </div>
@@ -93,14 +93,16 @@
   </div>
 
   <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Last Verified Date" [value]="formatDate(batchDetail.hoa.hoas[0].lastVerified)">
+    <!-- <app-input-disabled label="HOA 1 Last Verified Date" [value]="formatDate(batchDetail.hoa.hoas[0].lastVerified)">
     </app-input-disabled>
     <app-input-disabled label="HOA 1 Verified Method" [value]="batchDetail.hoa.hoas[0].verifiedMethod">
-    </app-input-disabled>
+    </app-input-disabled> -->
   </div>
 
   <app-border className="border">
-    <p-table [value]="batchRows" [columns]="cols" id="table" [scrollable]="true">
+    <p-table [value]="batchRows" [columns]="cols" id="table" [scrollable]="true" [paginator]="true" [rows]="10"
+      [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10,25,50]">
       <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
           <col style="width:250px" *ngFor="let col of columns">
@@ -116,7 +118,7 @@
       </ng-template>
       <ng-template pTemplate="body" let-batchRow let-columns="columns">
         <tr>
-          <td *ngFor="let col of columns" (click)="SetBatchDetail(batchRow.id)">
+          <td *ngFor="let col of columns" (click)="setBatchrowDetail(batchRow.id)">
             {{batchRow[col.field]}}
           </td>
         </tr>

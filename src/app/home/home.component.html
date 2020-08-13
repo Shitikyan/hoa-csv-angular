@@ -12,10 +12,14 @@
   </div>
 
   <div class="pb-4">
-    <p-fileUpload accept=".xslx,.csv" mode="basic" name="demo[]" url="./upload.php" [auto]="true"></p-fileUpload>
+    <p-fileUpload name="demo[]" [url]="path +'files'" (onUpload)="onUpload($event)" multiple="multiple"
+      accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+      <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul>
+      </ng-template>
+    </p-fileUpload>
   </div>
-
-  <button class="mr-5" pButton type="button" label="Submit"></button>
-  <button pButton type="button" label="Cancel" class="p-button-secondary"></button>
 
 </div>
