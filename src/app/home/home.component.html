@@ -13,7 +13,7 @@
 
   <div class="pb-4">
     <p-fileUpload *ngIf="uploadedFiles.length !== 1" name="demo[]" [url]="path +'files'" (onUpload)="onUpload($event)"
-      accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+      accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
       <ng-template pTemplate="content">
         <ul *ngIf="uploadedFiles.length">
           <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
