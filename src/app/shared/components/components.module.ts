@@ -5,23 +5,27 @@ import { BorderComponent } from './border/border.component';
 import { InputComponent } from './input/input.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputDisabledComponent } from './input/input-disabled/input-disabled.component';
-
+import { TableComponent } from './table/table.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
     BorderComponent,
     InputComponent,
-    InputDisabledComponent
+    InputDisabledComponent,
+    TableComponent,
   ],
   imports: [
     ButtonModule,
     RouterModule,
-    InputTextModule
+    InputTextModule,
+    TableModule
   ],
   exports: [
     BorderComponent,
     InputComponent,
-    InputDisabledComponent
+    InputDisabledComponent,
+    TableComponent
   ]
 })
 export class ComponentsModule { }
