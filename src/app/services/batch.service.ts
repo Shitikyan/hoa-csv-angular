@@ -17,10 +17,10 @@ export class BatchService {
   }
 
   getBatchrows(id: string) {
-    return this.apiService.get(`batch/${id}/batch-rows`)
+    return this.apiService.get(`batches/${id}/batch-rows`)
   }
 
   getFirstBatchrow(id: string) {
-    return this.apiService.get(`batch/${id}/batch-row`)
+    return this.apiService.get(`batches/${id}/batch-row-first`)
   }
 }

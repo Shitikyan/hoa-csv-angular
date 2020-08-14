@@ -21,7 +21,7 @@ export class BatchRowDetailsComponent implements OnInit {
     private batchDetailsService: BatchDetailsService,
     private route: ActivatedRoute,
     private batchService: BatchService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getBatchDetail();
@@ -40,6 +40,11 @@ export class BatchRowDetailsComponent implements OnInit {
             });
         });
     });
+  }
+
+  skipBatchrow(id: string) {
+    this.batchDetailsService.getNextBatchrow(id)
+      .subscribe(res => this.batchRow = res);
   }
 
   goBack(): void {

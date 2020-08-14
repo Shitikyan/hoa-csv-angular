@@ -12,6 +12,10 @@ export class BatchDetailsService {
     return this.apiService.get(`batch-rows/${id}`);
   }
 
+  getNextBatchrow(id: string) {
+    return this.apiService.get(`batch-rows/${id}/next`)
+  }
+
   getBatchrows() {
     return this.apiService.get('batch-rows');
   }

@@ -7,7 +7,7 @@
   </div>
   <app-border className="ml-3">
     <div class="d-flex justify-content-center mt-2 mb-5" id="flexButtons">
-      <button pButton type="button" label="Skip" class="p-button-sm pl-4 pr-4"></button>
+      <button pButton type="button" label="Skip" (click)="skipBatchrow(batchRow.id)" class="p-button-sm pl-4 pr-4"></button>
       <button pButton type="button" label="Accept" routerLink="/batch/details/{{batchRow.id}}/accept"
         class="p-button-success p-button-sm pl-4 pr-4"></button>
       <button pButton type="button" label="Exit" (click)="goBack()"
