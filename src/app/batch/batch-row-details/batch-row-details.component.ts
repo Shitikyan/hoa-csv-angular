@@ -13,13 +13,15 @@ import { BatchService } from 'src/app/services/batch.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class BatchRowDetailsComponent implements OnInit {
-  batchName: string = 'testBatch';
-  totalRecords: number = 0;
-  status: string = '409 Pending';
   batchRow: BatchDetail = {} as BatchDetail;
-  batch: Batch;
+  batch: Batch = {} as Batch;
 
-  constructor(private location: Location, private batchDetailsService: BatchDetailsService, private route: ActivatedRoute) { }
+  constructor(
+    private location: Location,
+    private batchDetailsService: BatchDetailsService,
+    private route: ActivatedRoute,
+    private batchService: BatchService
+  ) {}
 
   ngOnInit(): void {
     this.getBatchDetail();
@@ -29,7 +31,14 @@ export class BatchRowDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.batchDetailsService
         .getBatchrowDetail(params.get('id'))
-        .subscribe((res) => { this.batchRow = res });
+        .subscribe((res) => {
+          this.batchRow = res;
+          this.batchService
+            .getBatch(this.batchRow.batchId)
+            .subscribe((resBatch) => {
+              this.batch = resBatch;
+            });
+        });
     });
   }
 

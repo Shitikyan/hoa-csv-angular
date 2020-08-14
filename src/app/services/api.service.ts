@@ -5,12 +5,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private formatErrors(error: any) {
+    debugger
     return throwError(error.error);
   }
 
@@ -21,8 +22,9 @@ export class ApiService {
   }
 
   put(path: string, body: Object = {}): Observable<any> {
+    console.log(`${environment.api_url}${path}`);
     return this.http
-      .put(`${environment.api_url}${path}`, JSON.stringify(body))
+      .put(`${environment.api_url}${path}`, body)
       .pipe(catchError(this.formatErrors));
   }
 

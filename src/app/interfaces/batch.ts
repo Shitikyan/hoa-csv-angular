@@ -4,5 +4,5 @@ export interface Batch {
   client: string;
   date: string;
   status: string;
-  hoa: number;
+  count: number;
 }

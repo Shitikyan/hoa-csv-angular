@@ -1,6 +1,7 @@
 export interface BatchDetail {
     id: string;
     batchId: string;
+    pending: boolean;
     Ref_ID: string;
     PropertyFullStreetAddress: string;
     PropertyCity: string;

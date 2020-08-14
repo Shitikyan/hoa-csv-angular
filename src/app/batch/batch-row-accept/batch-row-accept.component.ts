@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BatchDetailsService } from 'src/app/services/batch-details.service';
 import { BatchDetail } from 'src/app/interfaces/batchDetail';
 import { Location } from '@angular/common';
@@ -9,7 +9,7 @@ import * as moment from 'moment';
   selector: 'app-batch-row-accept',
   templateUrl: './batch-row-accept.component.html',
   styleUrls: ['./batch-row-accept.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class BatchRowAcceptComponent implements OnInit {
   cols: any[];
@@ -20,15 +20,19 @@ export class BatchRowAcceptComponent implements OnInit {
   constructor(
     private location: Location,
     private batchDetailsService: BatchDetailsService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getBatchrowDetail();
     this.getBatchrows();
     this.cols = [
       { field: 'Ref_ID', header: 'Ref ID' },
-      { field: 'PropertyFullStreetAddress', header: 'PropertyFullStreetAddress' },
+      {
+        field: 'PropertyFullStreetAddress',
+        header: 'PropertyFullStreetAddress',
+      },
       { field: 'PropertyCity', header: 'PropertyCity' },
       { field: 'PropertyState', header: 'PropertyState' },
       { field: 'PropertyZip', header: 'PropertyZip' },
@@ -104,14 +108,38 @@ export class BatchRowAcceptComponent implements OnInit {
       { field: 'HOA_1_Contact_Phone', header: 'HOA 1 Contact Phone' },
       { field: 'HOA_1_Contact_Email', header: 'HOA 1 Contact Email' },
       { field: 'HOA_Contact_Type_2', header: 'HOA Contact Type 2' },
-      { field: 'HOA_1_Management_Company_Name', header: 'HOA 1 Management Company Name' },
-      { field: 'HOA_1_Management_Company_Address', header: 'HOA 1 Management Company Address' },
-      { field: 'HOA_1_Mangement_Company_City', header: 'HOA 1 Mangement Company City' },
-      { field: 'HOA_1_Management_Company_State', header: 'HOA 1 Management Company State' },
-      { field: 'HOA_1_Management_Company_Zip_Code', header: 'HOA 1 Management Company Zip Code' },
-      { field: 'HOA_1_Management_Company_Phone_Type', header: 'HOA 1 Management Company Phone Type' },
-      { field: 'HOA_1_Management_Company_Phone', header: 'HOA 1 Management Company Phone' },
-      { field: 'HOA_1_Management_Company_Email', header: 'HOA 1 Management Company Email' },
+      {
+        field: 'HOA_1_Management_Company_Name',
+        header: 'HOA 1 Management Company Name',
+      },
+      {
+        field: 'HOA_1_Management_Company_Address',
+        header: 'HOA 1 Management Company Address',
+      },
+      {
+        field: 'HOA_1_Mangement_Company_City',
+        header: 'HOA 1 Mangement Company City',
+      },
+      {
+        field: 'HOA_1_Management_Company_State',
+        header: 'HOA 1 Management Company State',
+      },
+      {
+        field: 'HOA_1_Management_Company_Zip_Code',
+        header: 'HOA 1 Management Company Zip Code',
+      },
+      {
+        field: 'HOA_1_Management_Company_Phone_Type',
+        header: 'HOA 1 Management Company Phone Type',
+      },
+      {
+        field: 'HOA_1_Management_Company_Phone',
+        header: 'HOA 1 Management Company Phone',
+      },
+      {
+        field: 'HOA_1_Management_Company_Email',
+        header: 'HOA 1 Management Company Email',
+      },
       { field: 'HOA_2_Name', header: 'HOA 2 Name' },
       { field: 'HOA_2_Type', header: 'HOA 2 Type' },
       { field: 'HOA_2_Contact_Type', header: 'HOA 2 Contact Type' },
@@ -123,15 +151,42 @@ export class BatchRowAcceptComponent implements OnInit {
       { field: 'HOA_2_Contact_Phone_Type', header: 'HOA 2 Contact Phone Type' },
       { field: 'HOA_2_Contact_Phone', header: 'HOA 2 Contact Phone' },
       { field: 'HOA_2_Contact_Email', header: 'HOA 2 Contact Email' },
-      { field: 'HOA_2_Management_Company_Name', header: 'HOA 2 Management Company Name' },
-      { field: 'HOA_2_Management_Company_Contact_Name', header: 'HOA 2 Management Company Contact Name' },
-      { field: 'HOA_2_Management_Company_Address', header: 'HOA 2 Management Company Address' },
-      { field: 'HOA_2_Mangement_Company_City', header: 'HOA 2 Mangement Company City' },
-      { field: 'HOA_2_Management_Company_State', header: 'HOA 2 Management Company State' },
-      { field: 'HOA_2_Management_Company_Zip_Code', header: 'HOA 2 Management Company Zip Code' },
-      { field: 'HOA_2_Management_Company_Phone_Type', header: 'HOA 2 Management Company Phone Type' },
-      { field: 'HOA_2_Management_Company_Phone', header: 'HOA 2 Management Company Phone' },
-      { field: 'HOA_2_Management_Company_Email', header: 'HOA 2 Management Company Email' },
+      {
+        field: 'HOA_2_Management_Company_Name',
+        header: 'HOA 2 Management Company Name',
+      },
+      {
+        field: 'HOA_2_Management_Company_Contact_Name',
+        header: 'HOA 2 Management Company Contact Name',
+      },
+      {
+        field: 'HOA_2_Management_Company_Address',
+        header: 'HOA 2 Management Company Address',
+      },
+      {
+        field: 'HOA_2_Mangement_Company_City',
+        header: 'HOA 2 Mangement Company City',
+      },
+      {
+        field: 'HOA_2_Management_Company_State',
+        header: 'HOA 2 Management Company State',
+      },
+      {
+        field: 'HOA_2_Management_Company_Zip_Code',
+        header: 'HOA 2 Management Company Zip Code',
+      },
+      {
+        field: 'HOA_2_Management_Company_Phone_Type',
+        header: 'HOA 2 Management Company Phone Type',
+      },
+      {
+        field: 'HOA_2_Management_Company_Phone',
+        header: 'HOA 2 Management Company Phone',
+      },
+      {
+        field: 'HOA_2_Management_Company_Email',
+        header: 'HOA 2 Management Company Email',
+      },
     ];
   }
 
@@ -142,14 +197,14 @@ export class BatchRowAcceptComponent implements OnInit {
   getBatchrows() {
     this.batchDetailsService
       .getBatchrows()
-      .subscribe(res => this.batchRows = res);
+      .subscribe((res) => (this.batchRows = res));
   }
 
   getBatchrowDetail(): void {
     this.route.paramMap.subscribe((params) => {
       this.batchDetailsService
         .getBatchrowDetail(params.get('id'))
-        .subscribe(res => {
+        .subscribe((res) => {
           this.batchRow = res;
           this.interBatchRow = res;
         });
@@ -159,7 +214,7 @@ export class BatchRowAcceptComponent implements OnInit {
   setInterBatchrowDetail(id: string) {
     this.batchDetailsService
       .getBatchrowDetail(id)
-      .subscribe(res => this.interBatchRow = res);
+      .subscribe((res) => (this.interBatchRow = res));
   }
 
   editBatchrow() {
@@ -167,16 +222,18 @@ export class BatchRowAcceptComponent implements OnInit {
       ...this.interBatchRow,
       id: this.batchRow.id,
       APN: this.batchRow.APN,
+      batchId: this.batchRow.batchId,
       Ref_ID: this.batchRow.Ref_ID,
       CurrentOwner: this.batchRow.CurrentOwner,
       LandUseDesc: this.batchRow.LandUseDesc,
       YearBuilt: this.batchRow.YearBuilt,
       Subdivision: this.batchRow.Subdivision,
       LatestSale_CondoRider: this.batchRow.LatestLoan_CondoRider,
-      LatestSale_PUDRider: this.batchRow.LatestLoan_PUDRider
+      LatestSale_PUDRider: this.batchRow.LatestLoan_PUDRider,
     };
-    this.batchDetailsService
-      .acceptBatchrow(merged);
+    this.batchDetailsService.acceptBatchrow(merged).subscribe((x) => {
+      this.router.navigate([`batches/${this.batchRow.batchId}`]);
+    });
   }
 
   formatDate(date: Date) {

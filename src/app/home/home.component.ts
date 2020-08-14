@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
-import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 interface Client {
   id: number;
@@ -20,16 +20,15 @@ export class HomeComponent implements OnInit {
   uploadedFiles: any[] = [];
   path: string;
 
-  constructor() {
-    this.clients = [
-      { label: 'CSV', value: { id: 1, name: 'CSV' } },
-    ];
+  constructor(private router: Router) {
+    this.clients = [{ label: 'CSV', value: { id: 1, name: 'CSV' } }];
   }
 
-  onUpload(event) {
-    for (let file of event.files) {
+  onUpload({ files }) {
+    for (let file of files) {
       this.uploadedFiles.push(file);
     }
+    this.router.navigate(['batches']);
   }
 
   ngOnInit(): void {
