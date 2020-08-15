@@ -106,6 +106,7 @@
       <ng-template pTemplate="colgroup" let-columns>
         <colgroup>
           <col style="width:250px" *ngFor="let col of columns">
+          <col style="width:250px">
         </colgroup>
       </ng-template>
       <ng-template pTemplate="header" let-columns>
@@ -127,9 +128,9 @@
   </app-border>
 
   <div class="mt-3">
-    <button class="mr-3" pButton type="button" (click)="editBatchrow()" label="Submit"></button>
-    <button class="mr-3" pButton label="Pause"></button>
-    <button class="mr-3" pButton label="Pause & Load Next"></button>
-    <button pButton type="button" (click)="goBack()" label="Release" class="p-button-secondary"></button>
+    <button class="mr-3 mb-3" pButton type="button" (click)="editBatchrow()" label="Submit"></button>
+    <button class="mr-3 mb-3" pButton label="Pause"></button>
+    <button class="mr-3 mb-3" pButton label="Pause & Load Next"></button>
+    <button class="mb-3 p-button-secondary" pButton type="button" (click)="goBack()" label="Release"></button>
   </div>
 </div>

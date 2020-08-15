@@ -1,4 +1,26 @@
 .header {
-  background-color: #1E1E2D;
+  background-color: #1e1e2d;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  .popupButton {
+    color: white;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  @media screen and (min-width: 768px) {
+    .popupButton {
+      display: none;
+    }
+  }
 }

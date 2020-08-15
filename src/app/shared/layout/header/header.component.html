@@ -1,2 +1,11 @@
 <header class="header">
+  <a type="button" (click)="toggleVisibility()" class="fa fa-bars popupButton"></a>
+  <div [hidden]="!visibleNavbar">
+    <button pButton type="button" (click)="toggleVisibility()" [routerLink]="['/']" label="Home"
+      icon="fas fa-home"></button>
+    <button pButton type="button" (click)="toggleVisibility()" [routerLink]="['/dashboard']" label="Dashboard"
+      icon="fas fa-home"></button>
+    <button pButton type="button" (click)="toggleVisibility()" [routerLink]="['/batches']" label="Batch"
+      icon="fas fa-home"></button>
+  </div>
 </header>
