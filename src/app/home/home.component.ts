@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ interface Client {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
   fileToUpload: File = null;

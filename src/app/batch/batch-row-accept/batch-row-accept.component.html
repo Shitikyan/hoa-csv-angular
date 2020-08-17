@@ -1,11 +1,11 @@
 <div class="batch-row-accept">
-  <div class="g-cols-3">
+  <div class="inputs">
     <app-input label="Adress" [value]="AddressInfo"></app-input>
     <app-input label="APN" [(ngModel)]="batchRow.APN"></app-input>
     <app-input label="Ref ID" [(ngModel)]="batchRow.Ref_ID"></app-input>
   </div>
 
-  <div class="g-cols-7">
+  <div class="inputs">
     <app-input label="Current Owner" [(ngModel)]="batchRow.CurrentOwner"></app-input>
     <app-input label="Prop Land Use" [(ngModel)]="batchRow.LandUseDesc"></app-input>
     <app-input label="Prop Year Built" [(ngModel)]="batchRow.YearBuilt"></app-input>
@@ -15,84 +15,84 @@
     <app-input label="Prop Override Division" [(ngModel)]="batchDetail.prop.overrideSubdivision"></app-input> -->
   </div>
 
-  <div class="g-cols-7">
+  <div class="inputs">
     <app-input label="Latest Sale Condorider" [(ngModel)]="batchRow.LatestSale_CondoRider"></app-input>
     <app-input label="Latest Sale Pudrider" [(ngModel)]="batchRow.LatestSale_PUDRider"></app-input>
   </div>
 
-  <div class="g-cols-4">
+  <div class="inputs">
     <app-input-disabled label="HOA Indicator" [value]="interBatchRow.HOA_Indicator"></app-input-disabled>
     <app-input-disabled label="HOA Flag" [value]="interBatchRow.HOA_Flag"></app-input-disabled>
     <app-input-disabled label="Number of HOAs" type="number" [value]="interBatchRow.NbrOfHOAs"></app-input-disabled>
     <app-input-disabled label="Comment" [value]="interBatchRow.Comments"></app-input-disabled>
   </div>
 
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Name" [value]="interBatchRow.HOA_1_Name"></app-input-disabled>
-    <app-input-disabled label="HOA 1 Type" [value]="interBatchRow.HOA_1_Type"></app-input-disabled>
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Name" [value]="interBatchRow.HOA_1_Name"></app-input-disabled>
+    <app-input-disabled label="HOA1 Type" [value]="interBatchRow.HOA_1_Type"></app-input-disabled>
     <!-- <app-input-disabled label="HOA 1 Is Master/Has Master"
       [value]="batchDetail.hoa.hoas[0].isMaster || batchDetail.hoa.hoas[0].hasMaster">
     </app-input-disabled> -->
     <!-- <app-input-disabled label="HOA 1 Voluntary" [value]="batchDetail.hoa.hoas[0].voluntary"></app-input-disabled> -->
-    <app-input-disabled label="HOA 1 Has Management Company"
+    <app-input-disabled label="HOA1 Has Manag. Comp."
       [value]="interBatchRow.HOA_1_Management_Company_Name ? true : false"></app-input-disabled>
   </div>
 
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Contact Name" [value]="interBatchRow.HOA_1_Contact_Name"></app-input-disabled>
-    <app-input-disabled label="HOA 1 Contact Type'" [value]="interBatchRow.HOA_1_Contact_Type"></app-input-disabled>
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Contact Name" [value]="interBatchRow.HOA_1_Contact_Name"></app-input-disabled>
+    <app-input-disabled label="HOA1 Contact Type" [value]="interBatchRow.HOA_1_Contact_Type"></app-input-disabled>
   </div>
 
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Address Mailing" [value]="interBatchRow.HOA_1_Address_Mailing">
-    </app-input-disabled>
-  </div>
-
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 City" [value]="interBatchRow.HOA_1_City"></app-input-disabled>
-    <app-input-disabled label="HOA 1 State" [value]="interBatchRow.HOA_1_State"></app-input-disabled>
-    <app-input-disabled label="HOA 1 Zip Code" [value]="interBatchRow.HOA_1_Zip_Code"></app-input-disabled>
-  </div>
-
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Contact Phone" [value]="interBatchRow.HOA_1_Contact_Phone"></app-input-disabled>
-    <app-input-disabled label="HOA 1 Contact Phone Type" [value]="interBatchRow.HOA_1_Contact_Phone_Type">
-    </app-input-disabled>
-    <app-input-disabled label="HOA 1 Contact Email" [value]="interBatchRow.HOA_1_Contact_Email"></app-input-disabled>
-  </div>
-
-  <div class="g-cols-3">
-    <app-input-disabled label="HOA 1 Management Company Name" [value]="interBatchRow.HOA_1_Management_Company_Name">
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Address Mailing" [value]="interBatchRow.HOA_1_Address_Mailing">
     </app-input-disabled>
   </div>
 
-  <div class="g-cols-3">
-    <app-input-disabled label="HOA 1 Management Company Address" [value]="interBatchRow.HOA_1_Management_Company_Address">
+  <div class="inputs">
+    <app-input-disabled label="HOA1 City" [value]="interBatchRow.HOA_1_City"></app-input-disabled>
+    <app-input-disabled label="HOA1 State" [value]="interBatchRow.HOA_1_State"></app-input-disabled>
+    <app-input-disabled label="HOA1 Zip Code" [value]="interBatchRow.HOA_1_Zip_Code"></app-input-disabled>
+  </div>
+
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Cont. Phone" [value]="interBatchRow.HOA_1_Contact_Phone"></app-input-disabled>
+    <app-input-disabled label="HOA1 Cont. Phone Type" [value]="interBatchRow.HOA_1_Contact_Phone_Type">
+    </app-input-disabled>
+    <app-input-disabled label="HOA1 Cont. Email" [value]="interBatchRow.HOA_1_Contact_Email"></app-input-disabled>
+  </div>
+
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Man. Comp. Name" [value]="interBatchRow.HOA_1_Management_Company_Name">
     </app-input-disabled>
   </div>
 
-  <div class="g-cols-5">
-    <app-input-disabled label="HOA 1 Management Company City" [value]="interBatchRow.HOA_1_Mangement_Company_City">
-    </app-input-disabled>
-    <app-input-disabled label="HOA 1 Management Company State" [value]="interBatchRow.HOA_1_Management_Company_State">
-    </app-input-disabled>
-    <app-input-disabled label="HOA 1 Management Company Zip" [value]="interBatchRow.HOA_1_Management_Company_Zip_Code">
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Man. Comp. Addr." [value]="interBatchRow.HOA_1_Management_Company_Address">
     </app-input-disabled>
   </div>
 
-  <div class="g-cols-4">
-    <app-input-disabled label="HOA 1 Management Company Phone" [value]="interBatchRow.HOA_1_Management_Company_Phone">
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Man. Comp. City" [value]="interBatchRow.HOA_1_Mangement_Company_City">
     </app-input-disabled>
-    <app-input-disabled label="HOA 1 Management Company Phone Type"
+    <app-input-disabled label="HOA1 Man. Comp. State" [value]="interBatchRow.HOA_1_Management_Company_State">
+    </app-input-disabled>
+    <app-input-disabled label="HOA1 Man. Comp. Zip" [value]="interBatchRow.HOA_1_Management_Company_Zip_Code">
+    </app-input-disabled>
+  </div>
+
+  <div class="inputs">
+    <app-input-disabled label="HOA1 Man. Comp. Phone" [value]="interBatchRow.HOA_1_Management_Company_Phone">
+    </app-input-disabled>
+    <app-input-disabled label="HOA1 Man. Comp. Ph. T."
       [value]="interBatchRow.HOA_1_Management_Company_Phone_Type">
     </app-input-disabled>
-    <app-input-disabled label="HOA 1 Management Company Company Email"
+    <app-input-disabled label="HOA1 Man. Comp. Email"
       [value]="interBatchRow.HOA_1_Management_Company_Email">
     </app-input-disabled>
     <app-input-disabled label="HOA Contact Type 2" [value]="interBatchRow.HOA_Contact_Type_2"></app-input-disabled>
   </div>
 
-  <div class="g-cols-5">
+  <div class="inputs">
     <!-- <app-input-disabled label="HOA 1 Last Verified Date" [value]="formatDate(batchDetail.hoa.hoas[0].lastVerified)">
     </app-input-disabled>
     <app-input-disabled label="HOA 1 Verified Method" [value]="batchDetail.hoa.hoas[0].verifiedMethod">
